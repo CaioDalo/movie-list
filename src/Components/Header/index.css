@@ -1,0 +1,55 @@
+.header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header ul {
+    width: 40%;
+}
+
+.header ul li {
+    padding: 0;
+}
+
+.header ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.header ul li a:hover {
+    text-decoration: underline;
+}
+
+.search-container {
+    position: relative;
+}
+
+.header input {
+    width: 200px;
+    height: 40px;
+    padding: 5px 10px;
+    border: 1px solid #bfbfbf;
+    outline: none;
+    background-color: #fff;
+
+    transition: border .3s;
+}
+
+.search-container input:focus {
+    border: 1px solid #171717;
+}
+
+.search-container svg {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #bfbfbf;
+}

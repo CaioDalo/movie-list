@@ -1,9 +1,14 @@
 import React from 'react';
 import {MovieContainer} from './Components/MovieContainer'
+import {Header} from './Components/Header'
+
 
 function App() {
   return (
-    <MovieContainer />
+    <>
+      <Header />
+      <MovieContainer />
+    </>
   );
 }
 

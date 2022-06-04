@@ -24,7 +24,7 @@ export function MovieContainer() {
 
     return (
         <>
-            <div className='movies-container'>
+            <div className='container movie-container'>
                 <ul>
                     {movies.map(movie => {
                         return <Movie key={movie.id} movie={movie} />

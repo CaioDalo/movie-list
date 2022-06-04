@@ -1,5 +1,5 @@
 li {
-    background-color: aliceblue;
+    background-color: #fff;
     max-width: 300px;
     padding: 0 0 10px 0;
     margin: 20px 20px;
@@ -8,6 +8,10 @@ li {
 img {
     width: 300px;
     height: 450px;
+}
+
+strong {
+    width: 70%;
 }
 
 .infos-container {
