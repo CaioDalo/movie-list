@@ -18,12 +18,17 @@
     padding: 0;
 }
 
-.header ul li a {
+.header ul li button {
     color: #000;
     text-decoration: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+
 }
 
-.header ul li a:hover {
+.header ul li button:hover {
     text-decoration: underline;
 }
 

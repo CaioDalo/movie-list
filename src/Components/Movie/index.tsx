@@ -16,7 +16,7 @@ export function Movie(props: MovieItemProps) {
 
     let adult
 
-    if( props.movie.adult == false ) {
+    if( props.movie.adult === false ) {
         adult = 'No'
     } else {
         adult = 'Yes'
