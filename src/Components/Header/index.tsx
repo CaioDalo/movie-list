@@ -3,18 +3,39 @@ import {AiOutlineSearch} from "react-icons/ai";
 import './index.css'
 
 
-export function Header () {
+export function Header() {
     return (
         <header>
             <div className="container header">
-                <ul>
-                    <li><button className="movie-filter" data-value='top_rated'>Top Rated</button></li>
-                    <li><button className="movie-filter" data-value='popular'>Popular</button></li>
-                    <li><button className="movie-filter" data-value='upcoming'>Upcoming</button></li>
+                <ul className="filters">
+                    <li>
+                        <input className="radio movie-filter" type="radio" name="movie-filter" id="top_rated" value='top_rated' defaultChecked/>
+                        <label htmlFor="top_rated">Top Rated</label>
+                    </li>
+                    <li>
+                        <input className="radio movie-filter" type="radio" name="movie-filter" id="popular" value='popular' />
+                        <label htmlFor="popular">Popular</label>
+                    </li>
+                    <li>
+                        <input className="radio movie-filter" type="radio" name="movie-filter" id="upcoming" value='upcoming' />
+                        <label htmlFor="upcoming">Upcoming</label>
+                    </li>
                 </ul>
                 <div className="search-container">
                     <input type="text" placeholder='Search'/>
                     <AiOutlineSearch />
+                </div>
+                <div>
+                    <ul className="languages">
+                        <li>
+                            <input className="radio language" type="radio" name="language" id="EN" value='en-US' defaultChecked/>
+                            <label htmlFor="EN">EN</label>
+                        </li>
+                        <li>
+                            <input className="radio language" type="radio" name="language" id="PT" value='pt-BR'/>
+                            <label htmlFor="PT">PT</label>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>

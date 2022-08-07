@@ -3,9 +3,9 @@
     margin-top: 60px;
 }
 
-ul {
+.movie-container ul {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
     list-style: none;
 }

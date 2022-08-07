@@ -11,8 +11,9 @@ interface Movie {
     poster_path: string
 }
 
-interface Request {
-    filter: string | null, 
+interface Filter {
+    filter: string | null,
+    lang: string | null
 }
 
 export function MovieContainer() {
@@ -21,24 +22,50 @@ export function MovieContainer() {
     
     useEffect(() => {
         const movieFilters = document.querySelectorAll('.movie-filter')
+        
         movieFilters.forEach(filter => {
             filter.addEventListener('click', () => {
-                const filterValue: Request = {
-                    filter: filter.getAttribute('data-value')
+                const languageElement = document.querySelector('input[name="language"]:checked') as HTMLInputElement
+                const languageValue = languageElement.value
+
+                const filterValue: Filter = {
+                    filter: filter.getAttribute('value'),
+                    lang: languageValue
                 }
 
                 requestMovie(filterValue)
             })
         })
-
-        const filterValue: Request = {
-            filter: 'top_rated'
-        } 
-        requestMovie(filterValue)
     }, [])
 
-    const requestMovie = ({filter}: Request) => {
-        const url = `https://api.themoviedb.org/3/movie/${filter}?api_key=1b273a82cec9cdead9e0f0e3d1b28e8d` 
+    useEffect(() => {
+        const languages = document.querySelectorAll('.language')
+
+        languages.forEach(language => {
+            language.addEventListener('click', () => {
+                const filterElement = document.querySelector('input[name="movie-filter"]:checked') as HTMLInputElement
+                const filterValue = filterElement.value
+
+                const languageValue: Filter = {
+                    filter: filterValue,
+                    lang: language.getAttribute('value')
+                }
+
+                requestMovie(languageValue)
+            })
+        })
+    }, [])
+
+    useEffect(() => {
+        const filterInitialValue: Filter = {
+            filter: 'top_rated',
+            lang: 'en-US'
+        } 
+        requestMovie(filterInitialValue)
+    }, [])
+
+    const requestMovie = ({filter, lang}: Filter) => {
+        const url = `https://api.themoviedb.org/3/movie/${filter}?api_key=1b273a82cec9cdead9e0f0e3d1b28e8d&language=${lang}` 
 
         fetch(url)
         .then(response => response.json())

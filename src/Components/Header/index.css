@@ -12,25 +12,37 @@
 
 .header ul {
     width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style: none;
 }
 
 .header ul li {
     padding: 0;
 }
 
-.header ul li button {
+.header ul li label {
     color: #000;
     text-decoration: none;
     border: none;
     background-color: transparent;
     cursor: pointer;
     font-size: 16px;
-
 }
 
-.header ul li button:hover {
+.header ul li label:hover {
     text-decoration: underline;
 }
+
+.header .radio:checked + label {
+    text-decoration: underline;
+}
+
+.header .selected {
+    text-decoration: underline;
+}
+
 
 .search-container {
     position: relative;
@@ -57,4 +69,21 @@
     right: 10px;
     transform: translateY(-50%);
     color: #bfbfbf;
+}
+
+.languages {
+    width: 75px !important;
+}
+
+.languages label:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.radio {
+    display: none;
+}
+
+.languages .radio:checked + label {
+    text-decoration: underline;
 }
