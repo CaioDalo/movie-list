@@ -19,10 +19,10 @@ interface Filter {
 export function MovieContainer() {
     
     const [movies, setMovies] = useState<Movie[]>([])
-    
+
     useEffect(() => {
         const movieFilters = document.querySelectorAll('.movie-filter')
-        
+
         movieFilters.forEach(filter => {
             filter.addEventListener('click', () => {
                 const languageElement = document.querySelector('input[name="language"]:checked') as HTMLInputElement
@@ -65,11 +65,15 @@ export function MovieContainer() {
     }, [])
 
     const requestMovie = ({filter, lang}: Filter) => {
-        const url = `https://api.themoviedb.org/3/movie/${filter}?api_key=1b273a82cec9cdead9e0f0e3d1b28e8d&language=${lang}` 
-
-        fetch(url)
-        .then(response => response.json())
-        .then(data => setMovies(data.results))
+        try {
+            const url = `https://api.themoviedb.org/3/movie/${filter}?api_key=1b273a82cec9cdead9e0f0e3d1b28e8d&language=${lang}` 
+            fetch(url)
+            .then(response => response.json())
+            .then(data => setMovies(data.results))
+        } catch (error) {
+            console.error(error)
+        }
+        
     }
 
     return (

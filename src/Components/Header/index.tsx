@@ -21,10 +21,12 @@ export function Header() {
                         <label htmlFor="upcoming">Upcoming</label>
                     </li>
                 </ul>
-                <div className="search-container">
+                <form className="search-container">
                     <input type="text" placeholder='Search'/>
-                    <AiOutlineSearch />
-                </div>
+                    <button type="submit">
+                        <AiOutlineSearch />
+                    </button>
+                </form>
                 <div>
                     <ul className="languages">
                         <li>

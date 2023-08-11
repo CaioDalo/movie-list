@@ -1,13 +1,16 @@
-import React from 'react';
-import {MovieContainer} from './Components/MovieContainer'
-import {Header} from './Components/Header'
+import React from "react";
+import { MovieContainer } from "./Components/MovieContainer";
+import { Header } from "./Components/Header";
 
+import { FiltersProvider } from './hooks/handleFilters'
 
 function App() {
   return (
     <>
-      <Header />
-      <MovieContainer />
+      <FiltersProvider>
+        <Header />
+        <MovieContainer />
+      </FiltersProvider>
     </>
   );
 }

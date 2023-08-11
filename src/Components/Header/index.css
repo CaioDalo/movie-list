@@ -63,13 +63,21 @@
     border: 1px solid #171717;
 }
 
-.search-container svg {
+.search-container button {
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
     color: #bfbfbf;
+    background-color: transparent;
+    border: none;
 }
+
+.search-container svg {
+    width: 1.125rem;
+    height: auto;
+}
+
 
 .languages {
     width: 75px !important;
