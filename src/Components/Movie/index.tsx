@@ -1,35 +1,24 @@
+import MovieType from '../../Types/movie'
 import './index.css'
 
 interface MovieItemProps {
-    movie: {
-        title: string,
-        vote_average: number,
-        id: string,
-        adult: boolean,
-        poster_path: string
-    }
+  movie: MovieType,
 }
 
 export function Movie(props: MovieItemProps) {
 
-    const movieImg = `https://image.tmdb.org/t/p/w1280${props.movie.poster_path}`
+  const {poster_path, title, vote_average, adult} = props.movie
 
-    let adult
+  const movieImg = `https://image.tmdb.org/t/p/w1280${poster_path}`
 
-    if( props.movie.adult === false ) {
-        adult = 'No'
-    } else {
-        adult = 'Yes'
-    }
-
-    return (
-        <li className='movie'>
-            <img src={movieImg} alt="" />
-            <div className='infos-container'>
-                <strong>{props.movie.title}</strong>
-                <p className='rate'>{props.movie.vote_average}</p>
-            </div>
-            <p className='adult'>Adult: {adult}</p>
-        </li>
-    )
+  return (
+    <li className='movie'>
+        <img src={movieImg} alt="" />
+        <div className='infos-container'>
+          <strong>{title}</strong>
+          <p className='rate'>{vote_average}</p>
+        </div>
+        <p className='adult'>Adult: {adult ? 'Yes' : 'No'}</p>
+    </li>
+  )
 }

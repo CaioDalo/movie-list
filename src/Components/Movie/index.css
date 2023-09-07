@@ -18,7 +18,7 @@ strong {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     padding: 0 20px;
     margin: 5px 0;
 }
