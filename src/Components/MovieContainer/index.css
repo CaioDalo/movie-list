@@ -1,11 +1,17 @@
-
 .movie-container {
-    padding: 60px 3%;
+  padding: 60px 3%;
 }
 
 .movie-container ul {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.empty-return {
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  margin-top: 70px;
 }

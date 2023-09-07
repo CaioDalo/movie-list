@@ -1,0 +1,23 @@
+{
+  "en-US": {
+    "top_rated": "Top Rated",
+    "popular": "Popular",
+    "upcoming": "Upcoming",
+    "search": "Search",
+    "adult": "Adult",
+    "yes": "Yes",
+    "no": "No",
+    "empty_return": "Sorry, no movies found"
+  },
+
+  "pt-BR": {
+    "top_rated": "Melhores Avaliados",
+    "popular": "Populares",
+    "upcoming": "Próximos",
+    "search": "Pesquisar",
+    "adult": "Adulto",
+    "yes": "Sim",
+    "no": "Não",
+    "empty_return": "Desculpe, nenhum filme encontrado"
+  }
+}

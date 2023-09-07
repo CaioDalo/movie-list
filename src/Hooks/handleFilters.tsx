@@ -1,5 +1,5 @@
 import MovieType from '../Types/movie'
-import { useState, createContext, useContext, useEffect, ReactNode } from "react";
+import { useState, createContext, useContext, useEffect, ReactNode, } from "react";
 
 interface IfilterContext {
   filter: string,
@@ -7,6 +7,7 @@ interface IfilterContext {
   movies: MovieType[],
   setNewFilter: (filter: string) => void,
   setNewLang: (lang: string) => void
+  setSearchMovie: (movie: string) => void
 }
 
 interface FilterProviderProps {
@@ -19,19 +20,28 @@ export const FiltersProvider = ({ children }: FilterProviderProps) => {
   const [filter, setfilter] = useState<string>('top_rated');
   const [lang, setLang] = useState<string>('en-US');
   const [movies, setMovies] = useState<MovieType[]>([])
+  const [search, setSearch] = useState<string>('');
 
-  function setNewFilter(filter: string) {
+
+  function setNewFilter(filter: string): void {
     setfilter(filter)
   }
 
-  function setNewLang(lang: string) {
+  function setNewLang(lang: string): void {
     setLang(lang)
+  }
+
+  function setSearchMovie(movie: string): void {
+    setSearch(movie)
   }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = `https://api.themoviedb.org/3/movie/${filter}?api_key=1b273a82cec9cdead9e0f0e3d1b28e8d&language=${lang}`
+        const url = search !== '' ?
+        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${search}&language=${lang}'` :
+        `https://api.themoviedb.org/3/movie/${filter}?api_key=${process.env.REACT_APP_API_KEY}&language=${lang}`
+
         await fetch(url)
         .then(response => {
           return response.json()
@@ -44,10 +54,10 @@ export const FiltersProvider = ({ children }: FilterProviderProps) => {
 
     fetchData()
 
-  }, [filter, lang])
+  }, [filter, lang, search])
 
   return (
-    <filterContext.Provider value={{ filter, lang, movies, setNewFilter, setNewLang }}>
+    <filterContext.Provider value={{ filter, lang, movies, setNewFilter, setNewLang, setSearchMovie }}>
       { children }
     </filterContext.Provider>
   );
