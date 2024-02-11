@@ -1,10 +1,10 @@
-import MovieType from '../Types/movie'
+import IMovieInterface from '../Types/movie'
 import { useState, createContext, useContext, useEffect, ReactNode, } from "react";
 
 interface IfilterContext {
   filter: string,
   lang: string,
-  movies: MovieType[],
+  movies: IMovieInterface,
   setNewFilter: (filter: string) => void,
   setNewLang: (lang: string) => void
   setSearchMovie: (movie: string) => void
@@ -19,7 +19,7 @@ export const filterContext = createContext<IfilterContext>({} as IfilterContext)
 export const FiltersProvider = ({ children }: FilterProviderProps) => {
   const [filter, setfilter] = useState<string>('top_rated');
   const [lang, setLang] = useState<string>('en-US');
-  const [movies, setMovies] = useState<MovieType[]>([])
+  const [movies, setMovies] = useState<IMovieInterface>({} as IMovieInterface);
   const [search, setSearch] = useState<string>('');
 
 
@@ -46,7 +46,7 @@ export const FiltersProvider = ({ children }: FilterProviderProps) => {
         .then(response => {
           return response.json()
         })
-        .then(data => setMovies(data.results))
+        .then(data => setMovies(data))
       } catch (error) {
         console.error(error)
       }

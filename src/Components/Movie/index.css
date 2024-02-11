@@ -1,17 +1,16 @@
 li {
     background-color: #fff;
-    max-width: 300px;
+    max-width: 325px;
     padding: 0 0 10px 0;
-    margin: 20px 0;
 }
 
 img {
-    width: 300px;
-    height: 450px;
+    width: 100%;
+    height: auto;
 }
 
 strong {
-    width: 75%;
+    width: 80%;
 }
 
 .infos-container {

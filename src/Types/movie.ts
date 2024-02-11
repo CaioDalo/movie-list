@@ -5,3 +5,10 @@ export default interface Movie {
   adult: boolean,
   poster_path: string
 }
+
+export default interface IMovieInterface {
+  results: Movie[],
+  total_pages: number
+  page: number
+  total_results: number
+}
