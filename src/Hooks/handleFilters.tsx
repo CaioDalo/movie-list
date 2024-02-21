@@ -1,5 +1,5 @@
 import IMovieInterface from '../Types/movie'
-import { useState, createContext, useContext, useEffect, ReactNode, } from "react";
+import { useState, createContext, useContext, useEffect, ReactNode, useMemo, } from "react";
 
 interface IfilterContext {
   filter: string,
@@ -56,8 +56,10 @@ export const FiltersProvider = ({ children }: FilterProviderProps) => {
 
   }, [filter, lang, search])
 
+  const providerValues = useMemo(() => ({ filter, lang, movies,setNewFilter, setNewLang, setSearchMovie }), [filter, lang, movies])
+
   return (
-    <filterContext.Provider value={{ filter, lang, movies, setNewFilter, setNewLang, setSearchMovie }}>
+    <filterContext.Provider value={providerValues}>
       { children }
     </filterContext.Provider>
   );

@@ -8,7 +8,7 @@ import './index.css'
 
 export function MovieContainer() {
 
-  const {setNewFilter, setNewLang, movies, lang} = useFilters()
+  const {setNewFilter, movies, lang} = useFilters()
 
   useEffect(() => {
     const movieFilters = document.querySelectorAll('.movie-filter')
@@ -22,18 +22,6 @@ export function MovieContainer() {
     })
   }, [setNewFilter])
 
-  useEffect(() => {
-    const languages = document.querySelectorAll('.language')
-
-    languages.forEach(language => {
-      language.addEventListener('click', () => {
-        const languageElement = document.querySelector('input[name="language"]:checked') as HTMLInputElement
-        const languageValue = languageElement.value
-        setNewLang(languageValue)
-      })
-    })
-  }, [setNewLang])
-
   return (
     <div className='container movie-container'>
       {
@@ -45,6 +33,7 @@ export function MovieContainer() {
         </ul>
       : <p className='empty-return'>{translations[lang as keyof typeof translations].empty_return}</p>
       }
+
       <Paginator totalPages={movies?.total_pages} />
     </div>
   );

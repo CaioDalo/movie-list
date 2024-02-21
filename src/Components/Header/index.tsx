@@ -8,11 +8,16 @@ import './index.css'
 export function Header() {
 
   const [search, setSearch] = useState<string>('');
-  const { setSearchMovie, lang } = useFilters()
+  const { setSearchMovie, setNewLang, lang } = useFilters()
 
   function handleSearch(e: any): void {
     e.preventDefault()
     setSearchMovie(search)
+  }
+
+  function handleLanguage(e: any): void {
+    e.preventDefault()
+    setNewLang(e.target.value)
   }
 
   return (
@@ -45,12 +50,14 @@ export function Header() {
         <div>
           <ul className="languages">
             <li>
-              <input className="radio language" type="radio" name="language" id="EN" value='en-US' defaultChecked/>
-              <label htmlFor="EN">EN</label>
+              <button className="language" name='language' value='en-US' onClick={(e) => handleLanguage(e)}>
+                EN
+              </button>
             </li>
             <li>
-              <input className="radio language" type="radio" name="language" id="PT" value='pt-BR'/>
-              <label htmlFor="PT">PT</label>
+              <button className="language" name='language' value='pt-BR' onClick={(e) => handleLanguage(e)}>
+                PT
+              </button>
             </li>
           </ul>
         </div>

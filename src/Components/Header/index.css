@@ -84,9 +84,13 @@
     width: 75px !important;
 }
 
-.languages label:hover {
-    text-decoration: underline;
-    cursor: pointer;
+.language {
+  border: none;
+  background-color: transparent;
+}
+
+.language:focus {
+  text-decoration: underline;
 }
 
 .radio {
