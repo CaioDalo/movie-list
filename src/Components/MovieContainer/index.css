@@ -18,7 +18,7 @@
   margin-bottom: 40px;
 }
 
-@media screen and (max-width: 734px) {
+@media screen and (max-width: 1124px) {
   .movie-container ul {
     justify-content: center;
   }

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Movie } from '../Movie'
 import { useFilters } from '../../Hooks/handleFilters'
 import { Paginator } from '../Paginator';
@@ -8,19 +7,7 @@ import './index.css'
 
 export function MovieContainer() {
 
-  const {setNewFilter, movies, lang} = useFilters()
-
-  useEffect(() => {
-    const movieFilters = document.querySelectorAll('.movie-filter')
-
-    movieFilters.forEach(filter => {
-      filter.addEventListener('click', () => {
-        const filterElement = document.querySelector('input[name="movie-filter"]:checked') as HTMLInputElement
-        const filterValue = filterElement.value
-        setNewFilter(filterValue)
-      })
-    })
-  }, [setNewFilter])
+  const {movies, lang} = useFilters()
 
   return (
     <div className='container movie-container'>

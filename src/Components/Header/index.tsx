@@ -1,23 +1,27 @@
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useFilters } from "../../Hooks/handleFilters";
-import translations from '../../translations/translate.json'
+import translations from "../../translations/translate.json";
 
-import './index.css'
+import "./index.css";
 
 export function Header() {
+  const { setNewFilter, setSearchMovie, setNewLang, lang, filter } =
+    useFilters();
 
-  const [search, setSearch] = useState<string>('');
-  const { setSearchMovie, setNewLang, lang } = useFilters()
+  const [search, setSearch] = useState<string>("");
 
   function handleSearch(e: any): void {
-    e.preventDefault()
-    setSearchMovie(search)
+    e.preventDefault();
+    setSearchMovie(search);
   }
 
   function handleLanguage(e: any): void {
-    e.preventDefault()
-    setNewLang(e.target.value)
+    setNewLang(e.target.value);
+  }
+
+  function handleFilters(e: any): void {
+    setNewFilter(e.target.value);
   }
 
   return (
@@ -25,20 +29,43 @@ export function Header() {
       <div className="container header">
         <ul className="filters">
           <li>
-            <input className="radio movie-filter" type="radio" name="movie-filter" id="top_rated" value='top_rated' defaultChecked/>
-            <label htmlFor="top_rated">{translations[lang as keyof typeof translations].top_rated}</label>
+            <button
+              className={`movie-filter ${filter === "top_rated" && "selected"}`}
+              type="button"
+              name="movie-filter"
+              value="top_rated"
+              onClick={(e) => handleFilters(e)}
+            >
+              {translations[lang as keyof typeof translations].top_rated}
+            </button>
           </li>
           <li>
-            <input className="radio movie-filter" type="radio" name="movie-filter" id="popular" value='popular' />
-            <label htmlFor="popular">{translations[lang as keyof typeof translations].popular}</label>
+            <button
+              className={`movie-filter ${filter === "popular" && "selected"}`}
+              type="button"
+              name="movie-filter"
+              value="popular"
+              onClick={(e) => handleFilters(e)}
+            >
+              {translations[lang as keyof typeof translations].popular}
+            </button>
           </li>
           <li>
-            <input className="radio movie-filter" type="radio" name="movie-filter" id="upcoming" value='upcoming' />
-            <label htmlFor="upcoming">{translations[lang as keyof typeof translations].upcoming}</label>
+            <button
+              className={`movie-filter ${filter === "upcoming" && "selected"}`}
+              type="button"
+              name="movie-filter"
+              value="upcoming"
+              onClick={(e) => handleFilters(e)}
+            >
+              {translations[lang as keyof typeof translations].upcoming}
+            </button>
           </li>
         </ul>
+
         <form className="search-container" onSubmit={handleSearch}>
-          <input type="text"
+          <input
+            type="text"
             placeholder={translations[lang as keyof typeof translations].search}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -50,12 +77,24 @@ export function Header() {
         <div>
           <ul className="languages">
             <li>
-              <button className="language" name='language' value='en-US' onClick={(e) => handleLanguage(e)}>
+              <button
+                className={`language ${lang === "en-US" && "selected"}`}
+                name="language"
+                value="en-US"
+                type="button"
+                onClick={(e) => handleLanguage(e)}
+              >
                 EN
               </button>
             </li>
             <li>
-              <button className="language" name='language' value='pt-BR' onClick={(e) => handleLanguage(e)}>
+              <button
+                className={`language ${lang === "pt-BR" && "selected"}`}
+                name="language"
+                value="pt-BR"
+                type="button"
+                onClick={(e) => handleLanguage(e)}
+              >
                 PT
               </button>
             </li>
@@ -63,5 +102,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

@@ -20,7 +20,7 @@ export function Movie(props: MovieItemProps) {
         <img src={movieImg} alt="Poster" />
         <div className='infos-container'>
           <strong>{title}</strong>
-          <p className='rate'>{vote_average}</p>
+          <p className='rate'>{vote_average.toFixed(2)}</p>
         </div>
         <p className='adult'>
           {translations[lang as keyof typeof translations].adult}:&nbsp;

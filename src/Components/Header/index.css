@@ -1,102 +1,77 @@
 .header {
-    background-color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .header ul {
-    width: 40%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    list-style: none;
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  list-style: none;
 }
 
 .header ul li {
-    padding: 0;
-    margin: 20px 0;
+  padding: 0;
+  margin: 20px 0;
 }
 
-.header ul li label {
-    color: #000;
-    text-decoration: none;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 16px;
+.languages {
+  width: 75px !important;
 }
 
-.header ul li label:hover {
-    text-decoration: underline;
-}
-
-.header .radio:checked + label {
-    text-decoration: underline;
+.language,
+.movie-filter {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .header .selected {
-    text-decoration: underline;
-}
-
-
-.search-container {
-    position: relative;
-}
-
-.header input {
-    width: 300px;
-    height: 40px;
-    padding: 5px 10px;
-    border: 1px solid #bfbfbf;
-    outline: none;
-    background-color: #fff;
-
-    transition: border .3s;
-}
-
-.search-container input:focus {
-    border: 1px solid #171717;
-}
-
-.search-container button {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    color: #bfbfbf;
-    background-color: transparent;
-    border: none;
-}
-
-.search-container svg {
-    width: 1.125rem;
-    height: auto;
-}
-
-
-.languages {
-    width: 75px !important;
-}
-
-.language {
-  border: none;
-  background-color: transparent;
-}
-
-.language:focus {
   text-decoration: underline;
 }
 
-.radio {
-    display: none;
+.search-container {
+  position: relative;
 }
 
-.languages .radio:checked + label {
-    text-decoration: underline;
+.header input {
+  width: 300px;
+  height: 40px;
+  padding: 5px 10px;
+  border: 1px solid #bfbfbf;
+  outline: none;
+  background-color: #fff;
+
+  transition: border 0.3s;
+}
+
+.search-container input:focus {
+  border: 1px solid #171717;
+}
+
+.search-container button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #bfbfbf;
+  background-color: transparent;
+  border: none;
+}
+
+.search-container svg {
+  width: 1.125rem;
+  height: auto;
 }
